@@ -29,19 +29,15 @@ import vn.fs.repository.OrderDetailRepository;
 import vn.fs.repository.OrderRepository;
 import vn.fs.repository.UserRepository;
 
-/**
- * @author DongTHD
- *
- */
 @Controller
-public class ProfileController extends CommomController{
+public class ProfileController extends CommomController {
 
 	@Autowired
 	UserRepository userRepository;
 
 	@Autowired
 	OrderRepository orderRepository;
-	
+
 	@Autowired
 	OrderDetailRepository orderDetailRepository;
 
@@ -58,7 +54,7 @@ public class ProfileController extends CommomController{
 			user = userRepository.findByEmail(principal.getName());
 			model.addAttribute("user", user);
 		}
-		
+
 		int currentPage = page.orElse(1);
 		int pageSize = size.orElse(6);
 
@@ -96,7 +92,7 @@ public class ProfileController extends CommomController{
 
 		return orderPages;
 	}
-	
+
 	@GetMapping("/order/detail/{order_id}")
 	public ModelAndView detail(Model model, Principal principal, User user, @PathVariable("order_id") Long id) {
 
@@ -106,19 +102,19 @@ public class ProfileController extends CommomController{
 			user = userRepository.findByEmail(principal.getName());
 			model.addAttribute("user", user);
 		}
-		
+
 		List<OrderDetail> listO = orderDetailRepository.findByOrderId(id);
 
-//		model.addAttribute("amount", orderRepository.findById(id).get().getAmount());
+		// model.addAttribute("amount", orderRepository.findById(id).get().getAmount());
 		model.addAttribute("orderDetail", listO);
-//		model.addAttribute("orderId", id);
+		// model.addAttribute("orderId", id);
 		// set active front-end
-//		model.addAttribute("menuO", "menu");
+		// model.addAttribute("menuO", "menu");
 		commomDataService.commonData(model, user);
-		
+
 		return new ModelAndView("web/historyOrderDetail");
 	}
-	
+
 	@RequestMapping("/order/cancel/{order_id}")
 	public ModelAndView cancel(ModelMap model, @PathVariable("order_id") Long id) {
 		Optional<Order> o = orderRepository.findById(id);

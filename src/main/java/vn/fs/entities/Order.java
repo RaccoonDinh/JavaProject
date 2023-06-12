@@ -19,10 +19,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author DongTHD
- *
- */
 @SuppressWarnings("serial")
 @Data
 @AllArgsConstructor
@@ -47,6 +43,7 @@ public class Order implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "userId")
 	private User user;
+
 	public Long getOrderId() {
 		return orderId;
 	}

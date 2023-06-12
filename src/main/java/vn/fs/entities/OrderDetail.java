@@ -14,10 +14,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author DongTHD
- *
- */
 @SuppressWarnings("serial")
 @Data
 @AllArgsConstructor
@@ -31,14 +27,15 @@ public class OrderDetail implements Serializable {
 	private Long orderDetailId;
 	private int quantity;
 	private Double price;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "productId")
 	private Product product;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "orderId")
 	private Order order;
+
 	public Long getOrderDetailId() {
 		return orderDetailId;
 	}

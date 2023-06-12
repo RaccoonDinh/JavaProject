@@ -23,25 +23,21 @@ import vn.fs.repository.FavoriteRepository;
 import vn.fs.repository.ProductRepository;
 import vn.fs.service.ShoppingCartService;
 
-/**
- * @author DongTHD
- *
- */
 @Service
 public class CommomDataService {
-	
+
 	@Autowired
 	FavoriteRepository favoriteRepository;
-	
+
 	@Autowired
 	ShoppingCartService shoppingCartService;
-	
+
 	@Autowired
 	ProductRepository productRepository;
-	
+
 	@Autowired
 	public JavaMailSender emailSender;
-	
+
 	@Autowired
 	TemplateEngine templateEngine;
 
@@ -63,15 +59,15 @@ public class CommomDataService {
 		model.addAttribute("cartItems", cartItems);
 
 	}
-	
+
 	// count product by category
 	public void listCategoryByProductName(Model model) {
 
 		List<Object[]> coutnProductByCategory = productRepository.listCategoryByProductName();
 		model.addAttribute("coutnProductByCategory", coutnProductByCategory);
 	}
-	
-	//sendEmail by order success
+
+	// sendEmail by order success
 	public void sendSimpleEmail(String email, String subject, String contentEmail, Collection<CartItem> cartItems,
 			double totalPrice, Order orderFinal) throws MessagingException {
 		Locale locale = LocaleContextHolder.getLocale();

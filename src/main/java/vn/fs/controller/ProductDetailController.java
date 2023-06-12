@@ -13,16 +13,12 @@ import vn.fs.entities.Product;
 import vn.fs.entities.User;
 import vn.fs.repository.ProductRepository;
 
-/**
- * @author DongTHD
- *
- */
 @Controller
-public class ProductDetailController extends CommomController{
-	
+public class ProductDetailController extends CommomController {
+
 	@Autowired
 	ProductRepository productRepository;
-	
+
 	@Autowired
 	CommomDataService commomDataService;
 
@@ -37,7 +33,7 @@ public class ProductDetailController extends CommomController{
 
 		return "web/productDetail";
 	}
-	
+
 	// Gợi ý top 10 sản phẩm cùng loại
 	public void listProductByCategory10(Model model, Long categoryId) {
 		List<Product> products = productRepository.listProductByCategory10(categoryId);

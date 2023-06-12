@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>vn</groupId>
-	<artifactId>greeny-shop</artifactId>
+	<artifactId>infinity-watch</artifactId>
 	<version>1.0</version>
-	<name>greeny-shop</name>
-	<description>greeny-shop</description>
+	<name>infinity-watch</name>
+	<description>infinity-watch</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

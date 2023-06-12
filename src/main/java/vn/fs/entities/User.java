@@ -19,14 +19,10 @@ import javax.persistence.UniqueConstraint;
 
 import javax.persistence.JoinColumn;
 
-/**
- * @author DongTHD
- *
- */
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class User implements Serializable{
+public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,10 +36,7 @@ public class User implements Serializable{
 	private Boolean status;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "users_roles",
-		joinColumns = @JoinColumn(name = "user_id",
-		referencedColumnName = "userId"),
-		inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "userId"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
 
 	private Collection<Role> roles;
 

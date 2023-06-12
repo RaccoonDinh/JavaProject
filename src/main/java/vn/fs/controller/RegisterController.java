@@ -22,10 +22,6 @@ import vn.fs.entities.User;
 import vn.fs.repository.UserRepository;
 import vn.fs.service.SendMailService;
 
-/**
- * @author DongTHD
- *
- */
 @Controller
 public class RegisterController {
 
@@ -65,7 +61,8 @@ public class RegisterController {
 		sendMailService.queue(dto.getEmail(), "Đăng kí tài khoản", body);
 
 		model.addAttribute("user", dto);
-		model.addAttribute("message", "Mã xác thực OTP đã được gửi tới Email : " + dto.getEmail() + " , hãy kiểm tra Email của bạn!");
+		model.addAttribute("message",
+				"Mã xác thực OTP đã được gửi tới Email : " + dto.getEmail() + " , hãy kiểm tra Email của bạn!");
 
 		return "/web/confirmOtpRegister";
 	}

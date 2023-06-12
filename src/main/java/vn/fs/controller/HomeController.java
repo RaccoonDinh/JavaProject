@@ -17,19 +17,15 @@ import vn.fs.entities.User;
 import vn.fs.repository.FavoriteRepository;
 import vn.fs.repository.ProductRepository;
 
-/**
- * @author DongTHD
- *
- */
 @Controller
 public class HomeController extends CommomController {
-	
+
 	@Autowired
 	ProductRepository productRepository;
-	
+
 	@Autowired
 	CommomDataService commomDataService;
-	
+
 	@Autowired
 	FavoriteRepository favoriteRepository;
 
@@ -40,7 +36,7 @@ public class HomeController extends CommomController {
 		bestSaleProduct20(model, user);
 		return "web/home";
 	}
-	
+
 	// list product ở trang chủ limit 10 sản phẩm mới nhất
 	@ModelAttribute("listProduct10")
 	public List<Product> listproduct10(Model model) {
@@ -48,7 +44,7 @@ public class HomeController extends CommomController {
 		model.addAttribute("productList", productList);
 		return productList;
 	}
-	
+
 	// Top 20 best sale.
 	public void bestSaleProduct20(Model model, User customer) {
 		List<Object[]> productList = productRepository.bestSaleProduct20();
@@ -82,6 +78,5 @@ public class HomeController extends CommomController {
 			model.addAttribute("bestSaleProduct20", listProductNew);
 		}
 	}
-
 
 }

@@ -38,10 +38,6 @@ import vn.fs.service.PaypalService;
 import vn.fs.service.ShoppingCartService;
 import vn.fs.util.Utils;
 
-/**
- * @author DongTHD
- *
- */
 @Controller
 public class CartController extends CommomController {
 
@@ -210,7 +206,7 @@ public class CartController extends CommomController {
 		}
 
 		// sendMail
-		commomDataService.sendSimpleEmail(user.getEmail(), "Greeny-Shop Xác Nhận Đơn hàng", "aaaa", cartItems,
+		commomDataService.sendSimpleEmail(user.getEmail(), "Infinity-Watch Xác Nhận Đơn hàng", "aaaa", cartItems,
 				totalPrice, order);
 
 		shoppingCartService.clear();
@@ -260,7 +256,8 @@ public class CartController extends CommomController {
 				}
 
 				// sendMail
-				commomDataService.sendSimpleEmail(user.getEmail(), "Greeny-Shop Xác Nhận Đơn hàng", "aaaa", cartItems,
+				commomDataService.sendSimpleEmail(user.getEmail(), "Infinity-Watch Xác Nhận Đơn hàng", "aaaa",
+						cartItems,
 						totalPrice, orderFinal);
 
 				shoppingCartService.clear();
